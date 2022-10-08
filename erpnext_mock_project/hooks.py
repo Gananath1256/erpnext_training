@@ -9,6 +9,18 @@ app_color = "grey"
 app_email = "gananathpasalapudi@gmail.com"
 app_license = "MIT"
 
+fixtures = [
+	{"dt":"Print Format",
+		"filters":[
+			[
+				"name", "in" , 
+				[
+					"Mockprint"
+				]
+			]
+		]
+	}
+]
 # Includes in <head>
 # ------------------
 
