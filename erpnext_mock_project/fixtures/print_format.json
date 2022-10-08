@@ -1,0 +1,29 @@
+[
+ {
+  "absolute_value": 0,
+  "align_labels_right": 0,
+  "css": null,
+  "custom_format": 0,
+  "default_print_language": "en-GB",
+  "disabled": 0,
+  "doc_type": "Sales Invoice",
+  "docstatus": 0,
+  "doctype": "Print Format",
+  "font": "Default",
+  "format_data": "[{\"fieldname\": \"print_heading_template\", \"fieldtype\": \"Custom HTML\", \"options\": \"<!--<div class=\\\"print-heading\\\">\\t\\t\\t\\t<h2><div>Sales Invoice</div><br><small class=\\\"sub-heading\\\">{{ doc.name }}</small>\\t\\t\\t\\t</h2></div>-->\"}, {\"fieldtype\": \"Section Break\", \"label\": \"\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"_custom_html\", \"print_hide\": 0, \"label\": \"Custom HTML\", \"fieldtype\": \"HTML\", \"options\": \"<!DOCTYPE html>\\n<html>\\n    <head>\\n        <style>\\n        <br>\\n        table{\\n            font-size:14px\\n        }\\n        </style>\\n    </head>\\n<body><br>\\n<table border style=\\\"width:100%\\\">\\n<tr>\\n<th>Sales Invoice</th>\\n<th>{{doc.name}}</th>\\n</tr>\\n</table>\\n<br>\\n\\n<table border style=\\\"width:100%\\\">\\n  <tr>\\n  \\t\\n    <td>IRN: <br>Eway Bill No:</td>\\n    <td>Invoice Date: <br>Transport:<br>Mode of Payment:<br>Type of Booking:<br>Designation:<br>Place of Supply:<br>Total NetWeight:</td>\\n    <td align=\\\"right\\\" style=\\\"width:20%\\\"> \\n{% set files = frappe.get_all('File', filters={'attached_to_doctype': 'Sales Invoice', 'attached_to_name': doc.name}, fields=['file_name', 'file_url']) %}\\n{%- for file in files -%}\\n   <img src=\\\"{{ file.file_url}}\\\" alt=\\\"{{ file.file_name }}\\\" />\\n{%- endfor -%} </td>\\n  </tr>\\n  <tr>\\n    <td colspan=\\\"3\\\">Our Bank Account:</td>\\n  </tr>\\n  <tr>\\n  \\t<th>Billed To:</th>\\n    <th>Shipped To:</th>\\n    <th>Other Details:</th>\\n  </tr>\\n  <tr>\\n    <td><b>Name:</b>{{doc.contact_person}}<br><b>Address:</b><br>{{doc.address_display}}<br><b>GSTIN:</b><br><b>State & Code:</b></td>\\n    <td><b>Name:</b>{{doc.contact_person}}<br><b>Address:</b><br>{{doc.address_display}}<br><b>GSTIN:</b><br><b>State & Code:</b></td>\\n    <td>Customer Po No:{{doc.po_no}}<br>Customer Po Date:<br>Contact Name:<br>Contact No:<br>So Number:</td>\\n  </tr>\\n</table>\\n<br>\\n\\n<table style=\\\"width:100%\\\">\\n  </table>\\n  <table border style=\\\"width:100%\\\">\\n  <tr>\\n  \\t<th>SI.No</th>\\n    <th>Item Description</th>\\n    <th>UOM</th>\\n    <th>Quantity</th>\\n    <th>Rate</th>\\n    <th>Amount</th>\\n  </tr>\\n   {%for i in doc.items%}\\n  <tr>\\n  \\t<td>{{i.idx}}</td>\\n    <td>{{i.description}}</td>\\n    <td>{{i.uom}}</td>\\n    <td>{{i.qty}}</td>\\n    <td>{{i.rate}}</td>\\n    <td>{{i.amount}}</td>\\n  </tr>\\n    {%endfor%}    \\n\\n</table>\\n\\n<br>\\n<table border style=\\\"width:100%\\\">\\n<tr>\\n    <td><b>Total Amount(In Words):</b>{{doc.in_words}}<br>\\n    <table border=\\\"2\\\" style=\\\"width:100%\\\">\\n<tr >\\n    <td style =\\\"width:60%\\\">{{doc.company}}</td>\\n    <td style =\\\"width:40%\\\">Received By:</td>\\n</tr>\\n<tr>\\n    <td></td>\\n    <td></td>\\n</tr>\\n</table>\\n<td>\\n    <table border=\\\"1\\\" style=\\\"width:100%\\\">\\n<tr>\\n    <td style =\\\"width:60%\\\">Net Total</td>\\n    <td style =\\\"width:40%\\\">{{doc.total}}</td>\\n</tr>\\n<tr>\\n    <td>Cartage Changes</td>\\n    <td></td>\\n</tr>\\n<tr>\\n    <td>Output Tax CGST 9%</td>\\n<td></td>\\n</tr>\\n<tr>\\n    <td>Output Tax SGST 9%</td>\\n<td></td> \\n</tr>\\n<tr>\\n    <td>Grand Total</td>\\n    <td>{{doc.grand_total}}</td></td>\\n</tr>\\n</table>\\n</td>\\n</tr>\\n</table>\\n<br>\\n<table border style=\\\"width:100%\\\">\\n    <tr>\\n        <th><center><b>Subject to Coimbatore Jurisdiction</b></center></th>\\n    </tr>\\n</table>\"}]",
+  "html": null,
+  "line_breaks": 0,
+  "modified": "2022-10-07 22:12:50.828318",
+  "module": "erpnext_mock_project",
+  "name": "Mockprint",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "print_format_builder": 0,
+  "print_format_type": "Jinja",
+  "raw_commands": null,
+  "raw_printing": 0,
+  "show_section_headings": 0,
+  "standard": "No"
+ }
+]

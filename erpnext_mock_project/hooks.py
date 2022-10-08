@@ -9,6 +9,18 @@ app_color = "grey"
 app_email = "gananathpasalapudi@gmail.com"
 app_license = "MIT"
 
+fixtures = [
+	{"dt":"Print Format",
+		"filters":[
+			[
+				"name", "in" , 
+				[
+					"Mockprint"
+				]
+			]
+		]
+	}
+]
 # Includes in <head>
 # ------------------
 
@@ -31,7 +43,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Employee Deductions" : "erpnext_mock_project/doctype/employee_deductions/employee_deductions.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
